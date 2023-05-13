@@ -1,4 +1,4 @@
-package src.main.java.org.example.controllers;
+package org.example.controllers;
 
 import javax.bluetooth.*;
 import javax.microedition.io.Connector;
