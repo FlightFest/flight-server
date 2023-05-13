@@ -7,5 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bluecove-emu-2.1.0" level="project" />
+    <orderEntry type="library" name="midp_2.1" level="project" />
+    <orderEntry type="library" name="microemu-cldc-2.0.4" level="project" />
+    <orderEntry type="library" name="microemu-jsr-82-2.0.4" level="project" />
   </component>
 </module>

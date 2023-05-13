@@ -70,6 +70,8 @@ public class PlayerController {
     public void addPlayer(Player p) {
         this.players.add(p);
     }
+    
+    public void addPlayer(String n){this.players.add(new Player(n));}
 
     public void delPlayer(Player p) {
         this.players.remove(p);

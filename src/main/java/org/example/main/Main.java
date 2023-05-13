@@ -1,40 +1,48 @@
 package src.main.java.org.example.main;
 
+import com.intel.bluetooth.rmi.Server;
 import src.main.java.org.example.controllers.PlayerController;
+import src.main.java.org.example.controllers.ServerController;
 import src.main.java.org.example.entities.Player;
 
+import javax.microedition.io.Connector;
+import javax.microedition.io.StreamConnection;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static void main(String[] args) throws IOException {
+
+        boolean ended = false;
 
         PlayerController contP = new PlayerController();
 
-        Player p1 = new Player("Juan", 3.f, 6.f);
-        Player p2 = new Player("Ana", -3.5f, 16.f);
-        Player p3 = new Player("Man", 20.f, -4.f);
-        Player p4 = new Player("Loser", -100.f, -12.f);
+        //Start bluetooth connection
+        StreamConnection streamConnection = getBluetoothConnection();
 
-        p1.addPoints(100);
-        p2.addPoints(50);
-        p3.addPoints(30);
+        // Obtener el objeto InputStream y OutputStream de la conexión
+        InputStream inputStream = streamConnection.openInputStream();
+        OutputStream outputStream = streamConnection.openOutputStream();
 
-        contP.addPlayer(p1);
-        contP.addPlayer(p4);
-        contP.addPlayer(p3);
-        contP.addPlayer(p2);
+        while (!ended) {
+            byte[] buffer = new byte[1024];
+            int bytes = inputStream.read(buffer);
+            String request = new String(buffer, 0, bytes);
+            System.out.println("Recibido: " + request);
 
-        System.out.println(contP.getNumPlayers());
-
-        for (Player p : contP.getBestPlayers()) {
-            System.out.println(p.getName() + " - " + p.getPoints());
+            // Procesar la solicitud aquí y enviar la respuesta al dispositivo remoto
+            String response = "Respuesta a la solicitud: " + request;
+            outputStream.write(response.getBytes());
         }
 
-        contP.delPlayer("Ana");
+        //End bluetooth connection
+        streamConnection.close();
 
-        System.out.println(contP.getNumPlayers());
+    }
 
-        for (Player p : contP.getBestPlayers()) {
-            System.out.println(p.getName() + " - " + p.getPoints());
-        }
+    private static StreamConnection getBluetoothConnection() throws IOException {
+        String connectionString = "btspp://localhost:1";
+        return (StreamConnection) Connector.open(connectionString);
     }
 }
