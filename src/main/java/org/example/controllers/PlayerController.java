@@ -1,7 +1,6 @@
 package src.main.java.org.example.controllers;
 import src.main.java.org.example.entities.Player;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -74,5 +73,16 @@ public class PlayerController {
 
     public void delPlayer(Player p) {
         this.players.remove(p);
+    }
+
+    public void delPlayer(String nom) {
+        boolean done = false;
+
+        for (int i = 0; i < this.players.size() && !done; ++i) {
+            if (this.players.get(i).getName().equals(nom)) {
+                this.players.remove(i);
+                done = true;
+            }
+        }
     }
 }

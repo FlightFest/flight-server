@@ -12,27 +12,29 @@ public class Main {
         Player p1 = new Player("Juan", 3.f, 6.f);
         Player p2 = new Player("Ana", -3.5f, 16.f);
         Player p3 = new Player("Man", 20.f, -4.f);
+        Player p4 = new Player("Loser", -100.f, -12.f);
 
         p1.addPoints(100);
         p2.addPoints(50);
         p3.addPoints(30);
 
         contP.addPlayer(p1);
+        contP.addPlayer(p4);
         contP.addPlayer(p3);
         contP.addPlayer(p2);
 
         System.out.println(contP.getNumPlayers());
 
         for (Player p : contP.getBestPlayers()) {
-            System.out.println(p.getName());
+            System.out.println(p.getName() + " - " + p.getPoints());
         }
 
-        contP.delPlayer(p2);
+        contP.delPlayer("Ana");
 
         System.out.println(contP.getNumPlayers());
 
         for (Player p : contP.getBestPlayers()) {
-            System.out.println(p.getName());
+            System.out.println(p.getName() + " - " + p.getPoints());
         }
     }
 }
