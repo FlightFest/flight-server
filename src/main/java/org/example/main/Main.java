@@ -1,9 +1,8 @@
 package org.example.main;
 
-import com.intel.bluetooth.rmi.Server;
-import src.main.java.org.example.controllers.PlayerController;
-import src.main.java.org.example.controllers.ServerController;
-import src.main.java.org.example.entities.Player;
+import org.example.controllers.PlayerController;
+import org.example.controllers.ServerController;
+import org.example.entities.Player;
 
 import javax.microedition.io.Connector;
 import javax.microedition.io.StreamConnection;

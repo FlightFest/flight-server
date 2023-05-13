@@ -1,5 +1,5 @@
-package src.main.java.org.example.controllers;
-import src.main.java.org.example.entities.Player;
+package org.example.controllers;
+import org.example.entities.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;

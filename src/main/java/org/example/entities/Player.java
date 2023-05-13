@@ -1,4 +1,4 @@
-package src.main.java.org.example.entities;
+package org.example.entities;
 
 public class Player implements Comparable<Player> {
 
