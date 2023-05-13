@@ -12,6 +12,7 @@ public class Player implements Comparable<Player> {
     private float x;
     private float y;
 
+
     //Empty constructor
     public Player() {
         this.name = "";

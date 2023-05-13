@@ -59,6 +59,8 @@ public class ServerController {
             try {
                 while (isRunning) {
                     // handle client requests
+                    StreamConnection connection = notifier.acceptAndOpen();
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();

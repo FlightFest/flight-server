@@ -2,6 +2,7 @@ package org.example.controllers;
 import org.example.entities.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -9,19 +10,25 @@ public class PlayerController {
 
     //Parameters
     private ArrayList<Player> players;
+    private ArrayList<Player> activePlayers;
 
     //Constructors
     public PlayerController() {
         this.players = new ArrayList<>();
     }
 
-    public PlayerController(ArrayList<Player> list) {
+    public PlayerController(ArrayList<Player> list, ArrayList<Player> active) {
         this.players = list;
+        this.activePlayers = active;
     }
 
     //Setters
     public void setPlayers(ArrayList<Player> list) {
         this.players = list;
+    }
+
+    public void setActivePlayers(ArrayList<Player> active) {
+        this.activePlayers = active;
     }
 
     //Getters
@@ -33,6 +40,13 @@ public class PlayerController {
         return this.players.size();
     }
 
+    public ArrayList<Player> getActivePlayers(){
+        return this.getActivePlayers();
+    }
+
+    public int getActivePlayersnumber(){
+        return this.activePlayers.size();
+    }
     //Returns the highest score
     public int getBestScore() {
         int bestScore = 0;
