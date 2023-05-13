@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ServerController {
 
     private ArrayList<StreamConnection> connections = new ArrayList<StreamConnection>();
-    private LocalDevice lDevice;
+    private  LocalDevice lDevice;
     private StreamConnectionNotifier notifier;
     private volatile boolean isRunning = true;
 
