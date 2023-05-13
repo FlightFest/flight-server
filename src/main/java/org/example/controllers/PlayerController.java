@@ -101,4 +101,10 @@ public class PlayerController {
             }
         }
     }
+
+    public void addActivePlayer(Player p) {this.activePlayers.add(p);}
+
+    public void delActivePlayer(Player p) {this.activePlayers.remove(p);}
+
+    public void delAllActivePlayer(){this.activePlayers.clear();}
 }
