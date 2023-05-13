@@ -23,6 +23,15 @@ public class Player implements Comparable<Player> {
     }
 
     //Constructor with parameters
+    public Player(String name) {
+        this.name = name;
+
+        this.points = 0;
+
+        this.x = 0;
+        this.y = 0;
+    }
+
     public Player(String name, float x, float y){
         this.name = name;
 
