@@ -70,6 +70,18 @@ public class PlayerController {
     public void addPlayer(Player p) {
         this.players.add(p);
     }
+
+    public void addPointsToPlayer(int points, Player player) {
+        for (Player p : this.players) {
+            if (p == player) p.addPoints(points);
+        }
+    }
+
+    public void addPointsToPlayer(int points, String nom) {
+        for (Player p : this.players) {
+            if (p.getName().equals(nom)) p.addPoints(points);
+        }
+    }
     
     public void addPlayer(String n){this.players.add(new Player(n));}
 
