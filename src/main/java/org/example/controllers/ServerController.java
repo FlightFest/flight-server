@@ -1,77 +1,24 @@
 package org.example.controllers;
 
-import javax.bluetooth.*;
-import javax.microedition.io.Connector;
-import javax.microedition.io.StreamConnection;
-import javax.microedition.io.StreamConnectionNotifier;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ServerController {
+    public static void main(String[] args) throws IOException {
+        int portNumber = 8080;
+        ServerSocket serverSocket = new ServerSocket(portNumber);
+        System.out.println("Server started on port " + portNumber);
 
-    private ArrayList<StreamConnection> connections = new ArrayList<StreamConnection>();
-    private  LocalDevice lDevice;
-    private StreamConnectionNotifier notifier;
-    private volatile boolean isRunning = true;
+        // Wait for a client to connect
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected from " + clientSocket.getInetAddress().getHostAddress());
 
-    public ServerController(){
+        // Process client requests
+        // ...
 
-    }
-
-    public void start() throws IOException {
-        lDevice = LocalDevice.getLocalDevice();
-        lDevice.setDiscoverable(DiscoveryAgent.GIAC);
-
-        UUID uuid = new UUID("0000110100001000800000805F9B34FB", false);
-        String url = "btspp://localhost:" + uuid.toString() + ";name=Server";
-        notifier = (StreamConnectionNotifier) Connector.open(url);
-
-        System.out.println("Server started");
-        
-        while (isRunning) {
-            StreamConnection connection = notifier.acceptAndOpen();
-            connections.add(connection);
-            System.out.println("Client connected: " + connection);
-            Thread t = new Thread(new ClientHandler(connection));
-            t.start();
-        }
-    }
-
-    public void end() throws IOException {
-        isRunning = false;
-        for (StreamConnection connection : connections) {
-            connection.close();
-        }
-        notifier.close();
-    }
-
-    private class ClientHandler implements Runnable {
-        private StreamConnection connection;
-
-        public ClientHandler(StreamConnection connection) {
-            this.connection = connection;
-        }
-
-        @Override
-        public void run() {
-            try {
-                while (isRunning) {
-                    // handle client requests
-                    StreamConnection connection = notifier.acceptAndOpen();
-
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    connections.remove(connection);
-                    connection.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        // Close the socket and server socket when done
+        clientSocket.close();
+        serverSocket.close();
     }
 }
