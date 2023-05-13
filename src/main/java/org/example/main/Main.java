@@ -1,4 +1,4 @@
-package src.main.java.org.example.main;
+package org.example.main;
 
 import com.intel.bluetooth.rmi.Server;
 import src.main.java.org.example.controllers.PlayerController;
