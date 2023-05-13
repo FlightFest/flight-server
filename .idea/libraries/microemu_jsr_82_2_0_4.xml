@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="microemu-jsr-82-2.0.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../libraries/microemu-jsr-82-2.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
