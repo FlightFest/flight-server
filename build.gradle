@@ -13,11 +13,11 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 //    implementation files('libs/bluecove-2.1.1.jar')
-    implementation group: ' net.sf.bluecove', name: 'bluecove-gpl', version: '2.1.1'
+   /* implementation group: ' net.sf.bluecove', name: 'bluecove-gpl', version: '2.1.1'
     implementation group: ' net.sf.bluecove', name: 'bluecove-bluez', version: '2.1.1'
     implementation group: ' net.sf.bluecove', name: 'bluecove-gpl', version:'2.1.1'
     // https://mvnrepository.com/artifact/net.sf.bluecove/bluecove
-    implementation group: 'net.sf.bluecove', name: 'bluecove', version: '2.1.0'
+    implementation group: 'net.sf.bluecove', name: 'bluecove', version: '2.1.0'*/
 
 
 }
